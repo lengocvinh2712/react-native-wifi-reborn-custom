@@ -481,6 +481,7 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
                 };
         DisconnectCallbackHolder.getInstance().addNetworkCallback(networkCallback, connectivityManager);
         DisconnectCallbackHolder.getInstance().requestNetwork(nr);
+        connectivityManager.requestNetwork(nr, networkCallback);
     }
 
     private static String longToIP(int longIp) {
