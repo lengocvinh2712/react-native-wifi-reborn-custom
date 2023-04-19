@@ -459,6 +459,7 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
                     public void onAvailable(Network network) {
                         super.onAvailable(network);
                         DisconnectCallbackHolder.getInstance().bindProcessToNetwork(network);
+                        connectivityManager.bindProcessToNetwork(network);
                         if (!pollForValidSSID(3, SSID)) {
                             promise.reject(ConnectErrorCodes.android10ImmediatelyDroppedConnection.toString(), "Firmware bugs on OnePlus prevent it from connecting on some firmware versions.");
                             return;
