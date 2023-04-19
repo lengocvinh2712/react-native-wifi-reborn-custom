@@ -28,7 +28,7 @@ This project is based on the no longer maintained https://github.com/robwalkerco
 
 ## Getting started
 
-`$ npm install react-native-wifi-reborn --save`
+`$ npm install react-native-wifi-reborn-custom --save`
 
 ### iOS
 
