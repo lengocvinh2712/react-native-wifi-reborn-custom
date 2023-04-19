@@ -1,4 +1,4 @@
-# react-native-wifi-reborn
+# react-native-wifi-reborn-custom
 
 <p align="center">
   <a href="./LICENSE">
