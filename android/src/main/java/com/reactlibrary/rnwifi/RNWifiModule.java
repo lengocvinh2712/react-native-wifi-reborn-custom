@@ -459,7 +459,6 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
                     public void onAvailable(Network network) {
                         super.onAvailable(network);
                         DisconnectCallbackHolder.getInstance().bindProcessToNetwork(network);
-                        connectivityManager.bindProcessToNetwork(network);
                         if (!pollForValidSSID(3, SSID)) {
                             promise.reject(ConnectErrorCodes.android10ImmediatelyDroppedConnection.toString(), "Firmware bugs on OnePlus prevent it from connecting on some firmware versions.");
                             return;
@@ -472,17 +471,9 @@ public class RNWifiModule extends ReactContextBaseJavaModule {
                         super.onUnavailable();
                         promise.reject(ConnectErrorCodes.userDenied.toString(), "On Android 10, the user cancelled connecting (via System UI).");
                     }
-
-                    @Override
-                    public void onLost(@NonNull Network network) {
-                        super.onLost(network);
-                        DisconnectCallbackHolder.getInstance().unbindProcessFromNetwork();
-                        DisconnectCallbackHolder.getInstance().disconnect();
-                    }
                 };
         DisconnectCallbackHolder.getInstance().addNetworkCallback(networkCallback, connectivityManager);
         DisconnectCallbackHolder.getInstance().requestNetwork(nr);
-        connectivityManager.requestNetwork(nr, networkCallback);
     }
 
     private static String longToIP(int longIp) {
