@@ -24,7 +24,7 @@
   </a>
 </p>
 
-This project is based on the no longer maintained https://github.com/robwalkerco/react-native-wifi.
+This project is based on the no longer maintained https://github.com/JuanSeBestia/react-native-wifi-reborn.
 
 ## Getting started
 
